@@ -1,6 +1,6 @@
 
-Used Program:   GALasm 2.0
-GAL-Assembler:  GALasm 2.0
+Used Program:   GALasm 2.1
+GAL-Assembler:  GALasm 2.1
 Device:         GAL16V8
 
 *F0
@@ -21,4 +21,4 @@ Device:         GAL16V8
 *L2193 1
 *C25a8
 *
-7305
+7307

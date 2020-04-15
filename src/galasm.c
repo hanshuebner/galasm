@@ -172,11 +172,16 @@ AssemblePldFile(char *file, struct Config *cfg)
 	int num_of_pins;
 	int num_of_col, fsize;
 
-	fsize = FileSize((UBYTE *) file);
+	fsize = FileSize(file);
+
+        if (fsize < 0) {
+          fprintf(stderr, "cannot open file %s", file); perror(":");
+          exit(1);
+        }
 
 	if ((fbuff = malloc(fsize)))
 	{
-		if ((ReadFile((UBYTE *) file, fsize, fbuff)))
+		if ((ReadFile(file, fsize, fbuff)))
 		{
 			actptr = fbuff;
 			buffend = fbuff + fsize;
@@ -1471,7 +1476,7 @@ AssemblePldFile(char *file, struct Config *cfg)
 				int l;
 
 
-				if ((base = GetBaseName(file)))
+				if ((base = strdup(file)))
 				{
 #define extman(p,l,a,b,c) { p[l-2] = a; base[l-1] = b; base[l-0] = c; }
 

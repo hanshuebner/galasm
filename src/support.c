@@ -28,7 +28,7 @@
 char *GetBaseName(char *filename)
 {
 	int c,n;
-
+ 
 	char *p;
 
 	c = strlen(filename);
@@ -75,7 +75,7 @@ int FileSize(char *filename)
 
 	int size;
 
-	if((fp = fopen(filename, "r")))
+	if((fp = fopen((char*) filename, "r")))
 	{
 		fseek(fp, 0, SEEK_END);
 
@@ -103,7 +103,7 @@ int FileSize(char *filename)
 **
 ******************************************************************************/
 
-int ReadFile(char *filename, int filesize, char *filebuff)
+int ReadFile(char *filename, int filesize, UBYTE *filebuff)
 {
     int  actlen;
     FILE *fp;
